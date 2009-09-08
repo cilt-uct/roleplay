@@ -93,12 +93,11 @@
 	</repositories>
 	<scm>
 		<connection>
-			scm:svn:http://source.cet.uct.ac.za/svn/sakai/user-alias/trunk/
+			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/trunk/
 		</connection>
 		<developerConnection>
-			scm:svn:http://source.cet.uct.ac.za/svn/sakai/user-alias/trunk/
+			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/trunk/
 		</developerConnection>
-		<url>http://source.cet.uct.ac.za/svn/sakai/user-alias/trunk/
-		</url>
+		<url>https://source.sakaiproject.org/contrib//uct/useralias/trunk/</url>
 	</scm>
 </project>
