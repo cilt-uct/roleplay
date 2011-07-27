@@ -27,11 +27,10 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.sakaiproject.authz.cover.AuthzGroupService;
+import org.sakaiproject.authz.api.AuthzGroupService;
+import org.sakaiproject.entitybroker.DeveloperHelperService;
+import org.sakaiproject.event.api.EventTrackingService;
 import org.sakaiproject.event.api.NotificationService;
-import org.sakaiproject.event.cover.EventTrackingService;
-import org.sakaiproject.site.cover.SiteService;
-import org.sakaiproject.tool.cover.ToolManager;
 import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
 
@@ -48,7 +47,24 @@ public class UserAliasItemBeanLocator implements BeanLocator {
 		this.userAliasLogic = ul;
 	}
 	
+	private AuthzGroupService authzGroupService;	
+	public void setAuthzGroupService(AuthzGroupService authzGroupService) {
+		this.authzGroupService = authzGroupService;
+	}
+
+	private EventTrackingService eventTrackingService;
 	
+	public void setEventTrackingService(EventTrackingService eventTrackingService) {
+		this.eventTrackingService = eventTrackingService;
+	}
+
+	
+	private DeveloperHelperService developerHelperService;
+	public void setDeveloperHelperService(
+			DeveloperHelperService developerHelperService) {
+		this.developerHelperService = developerHelperService;
+	}
+
 	public Object locateBean(String name) {
 		Object togo = delivered.get(name);
 		log.debug("Locating UserAliasItem: " + name);
@@ -83,9 +99,9 @@ public class UserAliasItemBeanLocator implements BeanLocator {
 
         // Trigger an event to invalidate the cache for this realm on all app servers.
     	// We use the authz reference format because the service is using a multirefcache.
-    	String siteid = ToolManager.getCurrentPlacement().getContext();
-    	String eventref = AuthzGroupService.authzGroupReference(SiteService.siteReference(siteid));
-    	EventTrackingService.post(EventTrackingService.newEvent("useralias.upd", eventref, siteid, true, NotificationService.NOTI_NONE));
+    	String siteid = developerHelperService.getCurrentLocationReference();
+    	String eventref = authzGroupService.authzGroupReference(siteid);
+    	eventTrackingService.post(eventTrackingService.newEvent("useralias.upd", eventref, siteid, true, NotificationService.NOTI_NONE));
 
     }
 
