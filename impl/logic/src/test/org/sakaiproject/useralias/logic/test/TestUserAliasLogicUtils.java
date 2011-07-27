@@ -4,19 +4,12 @@
 
 package org.sakaiproject.useralias.logic.test;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
 import org.sakaiproject.memory.api.MemoryService;
 import org.sakaiproject.useralias.dao.impl.UserAliasDao;
-import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.logic.impl.UserAliasLogicImpl;
 import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.model.UserAliasSite;
-import org.sakaiproject.useralias.test.PreloadTestDataImpl;
 import org.sakaiproject.useralias.test.UserAliasTestDataLoad;
-import junit.framework.TestCase;
 import org.springframework.test.AbstractTransactionalSpringContextTests;
 
 
