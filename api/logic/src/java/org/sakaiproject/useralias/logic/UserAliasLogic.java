@@ -2,7 +2,6 @@ package org.sakaiproject.useralias.logic;
 
 import java.util.List;
 
-import org.sakaiproject.site.api.Site;
 import org.sakaiproject.useralias.model.UserAliasItem;
 
 public interface UserAliasLogic {
