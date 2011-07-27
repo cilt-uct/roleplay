@@ -43,12 +43,11 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 
 	
 	
-	public static String VIEW_ID = "aliasUser";
+	public static final String VIEW_ID = "aliasUser";
 	
 	
 	
 	public String getViewID() {
-		// TODO Auto-generated method stub
 		return VIEW_ID;
 	}
 	private static Log log = LogFactory.getLog(MainViewProducer.class);
