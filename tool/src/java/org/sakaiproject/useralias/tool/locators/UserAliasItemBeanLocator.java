@@ -41,7 +41,7 @@ public class UserAliasItemBeanLocator implements BeanLocator {
 	private static Log log = LogFactory.getLog(UserAliasItemBeanLocator.class);
 	public static final String NEW_PREFIX = "new";
 	
-	private Map delivered = new HashMap();
+	private Map<String, Object> delivered = new HashMap<String, Object>();
 	
 	private UserAliasLogic userAliasLogic;
 	public void setLogic(UserAliasLogic ul) {
@@ -69,7 +69,7 @@ public class UserAliasItemBeanLocator implements BeanLocator {
     	
     	boolean updated = false;
     	
-        for (Iterator it = delivered.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = delivered.keySet().iterator(); it.hasNext();) {
           String key = (String) it.next();
           UserAliasItem item = (UserAliasItem) delivered.get(key);
                  	  
