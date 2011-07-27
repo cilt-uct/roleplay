@@ -112,8 +112,7 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 		
 		// Not found in the cache - look it up and cache result
 		
-		Search search = new Search("siteId", realmId);
-		UserAliasSite site = dao.findOneBySearch(UserAliasSite.class, search);
+		UserAliasSite site = getSiteByContext(realmId);
 		
 		Collection<String> azgIds = new Vector<String>();
 		azgIds.add(realmId);
@@ -126,6 +125,12 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 		}
 		
 		return found;
+	}
+
+	private UserAliasSite getSiteByContext(String realmId) {
+		Search search = new Search("siteId", realmId);
+		UserAliasSite site = dao.findOneBySearch(UserAliasSite.class, search);
+		return site;
 	}
 
 	/**
@@ -238,6 +243,19 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 		log.debug("getUserDisplayName(" + user.getEid() + ")");
 		String contextReference = developerHelperService.getCurrentLocationReference();
 		return getUserDisplayName(user, contextReference);
+	}
+
+	public void setSiteAliasStatus(String context, boolean isAliased) {
+		UserAliasSite site = getSiteByContext(context);
+		
+		if (site == null && isAliased) {
+			site = new UserAliasSite();
+			site.setSiteId(context);
+			dao.save(site);
+		} else if (site != null & !isAliased) {
+			dao.delete(site);
+		}
+		
 	}
 
 }

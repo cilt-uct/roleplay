@@ -91,8 +91,15 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 			
 			canEdit = true;
 		}
+		
 		String siteId = toolManager.getCurrentPlacement().getContext();
 		String context = "/site/" + siteId;
+		
+		//is the site enabled for useralias?
+		if (!userAliasLogic.realmIsAliased(context)) {
+			userAliasLogic.setSiteAliasStatus(context, true);
+		}
+		
 		
 		//make the link to download the csv
 		UIInternalLink.make(tofill, "download-link", new CSVViewParamaters("CSVHandlerHook", context));
@@ -123,10 +130,10 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 		try {
 		
 		AuthzGroup group = authzGroupService.getAuthzGroup(context);
-		Set mem = group.getMembers();
-		Iterator it = mem.iterator();
+		Set<Member> mem = group.getMembers();
+		Iterator<Member> it = mem.iterator();
 		UIForm form = UIForm.make(tofill,"userAliasForm");
-		List userList = new ArrayList();
+		List<User> userList = new ArrayList<User>();
 		
 		while (it.hasNext()) {
 			Member member = (Member) it.next();

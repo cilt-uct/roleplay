@@ -14,9 +14,21 @@ public interface UserAliasLogic {
 	
 	public void saveUserAliasItem(UserAliasItem item);
 	
+	/**
+	 * Is this context aliased
+	 * @param realmId
+	 * @return
+	 */
 	public boolean realmIsAliased(String realmId);
 	
 	public UserAliasItem getUserAliasitemById(Long id);
 	
 	public boolean isAliasedInContext(String userId, String context);
+	
+	/**
+	 * 
+	 * @param context
+	 * @param isAliased
+	 */
+	public void setSiteAliasStatus(String context, boolean isAliased);
 }
