@@ -252,8 +252,10 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 			site = new UserAliasSite();
 			site.setSiteId(context);
 			dao.save(site);
+			siteCache.remove(context);
 		} else if (site != null & !isAliased) {
 			dao.delete(site);
+			siteCache.remove(context);
 		}
 		
 	}
