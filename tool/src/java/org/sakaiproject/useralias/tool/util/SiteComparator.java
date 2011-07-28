@@ -32,7 +32,7 @@ import org.sakaiproject.user.api.User;
  * the SiteComparator class
  */
 public class SiteComparator
-	implements Comparator
+	implements Comparator<User>
 {
 	private static Log log = LogFactory.getLog(SiteComparator.class);
 	
@@ -64,7 +64,7 @@ public class SiteComparator
 	* @param o2 The second object
 	* @return The compare result. 1 is o1 < o2; -1 otherwise
 	*/
-	public int compare ( Object o1, Object o2)
+	public int compare ( User o1, User o2)
 	{
 		int result = -1;
 		
