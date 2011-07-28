@@ -23,7 +23,6 @@ package org.sakaiproject.useralias.tool.handler;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -34,7 +33,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -54,7 +52,6 @@ import org.sakaiproject.util.SortedIterator;
 
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class CSVHandlerHook implements HandlerHook {
 
