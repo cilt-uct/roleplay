@@ -160,7 +160,9 @@ public class CSVHandlerHook implements HandlerHook {
 
 				User u = (User)sortedParticipants.next();
 				UserAliasItem ua = userAliasLogic.getUserAliasItemByIdForContext(u.getId(), context);
-				log.info("adding " + u.getEid() + " " + u.getLastName() + "to row:" + (rowId - 1));
+				if (log.isDebugEnabled()) {
+					log.debug("adding " + u.getEid() + " " + u.getLastName() + "to row:" + (rowId - 1));
+				}
 
 				thisRow.createCell(0).setCellValue(u.getEid());
 				thisRow.createCell(1).setCellValue(u.getLastName());
