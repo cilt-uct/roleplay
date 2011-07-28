@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:rsf="http://ponder.org.uk/rsf" xmlns="http://www.w3.org/1999/xhtml">
 <head >
 <title >User Aliases</title>
 <link rsf:id="scr=portal-matter" href="../library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
@@ -57,11 +57,11 @@ $(document).ready(function() {$("#sortableTable").tablesorter({
     <table id="sortableTable" class="listHier lines nolines" cellspacing="0" cellpadding="0" border="0">
       <thead>
         <tr>
-          <th id="surname"><a title="Sort by surname" href="#">Surname</a></th>
-          <th id="name"><a title="Sort by name" href="#">Name</a></th>
-          <th id="id"><a title="Sort by username" href="#">Username</a></th>
-          <th id="aliastFirst"><a title="Sort by alias first name" href="#">Alias first name</a></th>
-          <th id="aliasLast"><a title="Sort by alias last name" href="#">Alias last name</a></th>
+          <th id="surname"><a title="Sort by surname" href="#" rsf:id="msg=title_surname">Surname</a></th>
+          <th id="name"><a title="Sort by name" href="#" rsf:id="msg=title_givenname">Name</a></th>
+          <th id="id"><a title="Sort by username" href="#" rsf:id="msg=title_username">Username</a></th>
+          <th id="aliastFirst"><a title="Sort by alias first name" href="#" rsf:id="msg=title_aliasFirst">Alias first name</a></th>
+          <th id="aliasLast"><a title="Sort by alias last name" href="#" rsf:id="msg=title_aliasLast">Alias last name</a></th>
         </tr>
       </thead>
       <tbody>

@@ -53,6 +53,7 @@ import uk.org.ponder.rsf.components.UIELBinding;
 import uk.org.ponder.rsf.components.UIForm;
 import uk.org.ponder.rsf.components.UIInput;
 import uk.org.ponder.rsf.components.UIInternalLink;
+import uk.org.ponder.rsf.components.UIMessage;
 import uk.org.ponder.rsf.components.UIOutput;
 import uk.org.ponder.rsf.view.ComponentChecker;
 import uk.org.ponder.rsf.view.DefaultView;
@@ -122,7 +123,7 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 		
 		
 		//make the link to download the csv
-		UIInternalLink.make(tofill, "download-link", new CSVViewParamaters("CSVHandlerHook", context));
+		UIInternalLink.make(tofill, "download-link", UIMessage.make("link_download"), new CSVViewParamaters("CSVHandlerHook", context));
 		
 		try {
 			
@@ -223,7 +224,7 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 		}
 			//UICommand.make(form, "submit","submit","#{itemBean.processActionAdd}");
 		if (canEdit)
-			UICommand.make(form, "submit", "Update", "userAliasItemBeanLocator.saveAll");
+			UICommand.make(form, "submit", UIMessage.make("Update"), "userAliasItemBeanLocator.saveAll");
 		
 		}
 		catch (Exception e) {
