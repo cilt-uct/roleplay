@@ -85,7 +85,7 @@ public class SiteComparator
 			{
 				result = 1;
 			}
-			else if (s1==null && s2 != null)
+			else if (s1==null)
 			{
 				result = -1;
 			}
