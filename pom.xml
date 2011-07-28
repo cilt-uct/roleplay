@@ -6,7 +6,7 @@
 		<groupId>org.sakaiproject.purepoms</groupId>
 		<version>2.7.10</version>
 	</parent>
-	<version>0.2</version>
+	<version>0.3-SNAPSHOT</version>
 	<name>Sakai role play tool</name>
 	<groupId>org.sakaiproject</groupId>
 	<artifactId>useralias-base</artifactId>
@@ -26,7 +26,7 @@
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-model-api
 				</artifactId>
-				<version>0.2</version>
+				<version>0.3-SNAPSHOT</version>
 				<!--
 					emailtemplateservice.version
 				-->
@@ -36,7 +36,7 @@
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-logic-api
 				</artifactId>
-				<version>0.2</version>
+				<version>0.3-SNAPSHOT</version>
 				<!--
 					emailtemplateservice.version
 				-->
@@ -45,7 +45,7 @@
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-hbm</artifactId>
-				<version>0.2</version>
+				<version>0.3-SNAPSHOT</version>
 				<!--
 					emailtemplateservice.version
 				-->
@@ -55,7 +55,7 @@
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-dao-impl
 				</artifactId>
-				<version>0.2</version>
+				<version>0.3-SNAPSHOT</version>
 				<!--
 					emailtemplateservice.version
 				-->
@@ -64,7 +64,7 @@
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-logic-impl
 				</artifactId>
-				<version>0.2</version>
+				<version>0.3-SNAPSHOT</version>
 				<!--
 					emailtemplateservice.version
 				-->
@@ -90,11 +90,11 @@
 	</repositories>
 	<scm>
 		<connection>
-			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/tags/useralias-0.2
+			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/trunk/
 		</connection>
 		<developerConnection>
-			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/tags/useralias-0.2
+			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/trunk/
 		</developerConnection>
-		<url>https://source.sakaiproject.org/contrib//uct/useralias/tags/useralias-0.2</url>
+		<url>https://source.sakaiproject.org/contrib//uct/useralias/trunk/</url>
 	</scm>
 </project>
