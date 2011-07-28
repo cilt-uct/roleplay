@@ -55,7 +55,6 @@ import uk.org.ponder.rsf.viewstate.ViewParameters;
 
 public class CSVHandlerHook implements HandlerHook {
 
-	private static final char COMMA = ',';
 	private static Log log = LogFactory.getLog(CSVHandlerHook.class);
 
 	private HttpServletResponse response;
