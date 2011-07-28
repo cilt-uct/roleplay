@@ -33,6 +33,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.sakaiproject.authz.api.AuthzGroup;
 import org.sakaiproject.authz.api.AuthzGroupService;
 import org.sakaiproject.authz.api.GroupNotDefinedException;
@@ -60,49 +65,47 @@ public class CSVHandlerHook implements HandlerHook {
 	public void setResponse(HttpServletResponse response) {
 		this.response = response;
 	}
-	
+
 	private UserAliasLogic userAliasLogic;
 	public void setLogic(UserAliasLogic ul) {
 		this.userAliasLogic = ul;
 	}
-	
+
 	private ToolManager toolManager;
 	public void setToolManager(ToolManager toolManager) {
 		this.toolManager = toolManager;
 	}
-	
+
 	private ViewParameters viewparams;
 	public void setViewparams(ViewParameters viewparams) {
 		this.viewparams = viewparams;
 	}
-	
+
 	private AuthzGroupService authzGroupService;
 	public void setAuthzGroupService(AuthzGroupService az) {
 		authzGroupService = az;
 	}
-	
+
 	private UserDirectoryService userDirectoryService;
 	public void setUserDirectoryService(UserDirectoryService uds) {
 		this.userDirectoryService = uds;
 	}
-	
-	public boolean handle() {
-		
 
-		CSVViewParamaters ivp;
-		
+	public boolean handle() {
+
+
 		if (viewparams instanceof CSVViewParamaters) {
 			log.debug("got a CSVViewParamaters");
 		} else {
 			log.debug("Not an csv view!: " + viewparams + ", " + viewparams.viewID);
 			return false;
 		}
-		
+
 		log.debug("handling the CSV request!");
-		
+
 		//set the headers
-		response.setHeader("Content-disposition", "attachment;filename=\"useralias.csv\"");
-		response.setContentType("application/csv");
+		response.setHeader("Content-disposition", "attachment;filename=\"useralias.xls\"");
+		response.setContentType("application/xls");
 		//response.setHeader("filename", "useralias.csv");
 
 		OutputStream outputStream;
@@ -110,21 +113,26 @@ public class CSVHandlerHook implements HandlerHook {
 			outputStream = response.getOutputStream();
 
 
-		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-		CSVWriter writer = new CSVWriter(outputStreamWriter, COMMA);		
+			Workbook wb = new HSSFWorkbook();
+			Sheet sheet = wb.createSheet("new sheet");
 
 			String siteId = toolManager.getCurrentPlacement().getContext();
 			String context = "/site/" + siteId;
-			
+
 			AuthzGroup group = authzGroupService.getAuthzGroup(context);
-			Set mem = group.getMembers();
-			Iterator it = mem.iterator();
-			
-			
-			writer.writeNext(new String[]{"userid","Surname","firstname","Alias Lastname", "alias firstname"});
-		
+			Set<Member> mem = group.getMembers();
+			Iterator<Member> it = mem.iterator();
+
+			//Header row
+			Row row = sheet.createRow((short)0);
+			row.createCell(0).setCellValue("userid");
+			row.createCell(1).setCellValue("Surname");
+			row.createCell(2).setCellValue("firstname");
+			row.createCell(3).setCellValue("Alias Lastname");
+			row.createCell(4).setCellValue("alias firstname");
+
 			List<User> userList = new ArrayList<User>();
-			
+
 			while (it.hasNext()) {
 				Member member = (Member) it.next();
 				log.debug("got member: " + member.getUserEid());
@@ -140,33 +148,36 @@ public class CSVHandlerHook implements HandlerHook {
 
 
 			}
-			
+
 			Iterator sortedParticipants = null;
 			sortedParticipants = new SortedIterator (userList.iterator (), new SiteComparator (SiteComparator.SORTED_BY_PARTICIPANT_NAME, "sortedAsc"));
 			userList.clear();
-			
+			int rowId = 1;
 			while (sortedParticipants.hasNext()) {
-				
-					List<String> newline = new ArrayList<String>(); 
-					User u = (User)sortedParticipants.next();
-					UserAliasItem ua = userAliasLogic.getUserAliasItemByIdForContext(u.getId(), context);
-					log.debug("adding " + u.getEid() + " " + u.getLastName());
-					newline.add(u.getEid());
-					newline.add(u.getLastName());
-					newline.add(u.getFirstName());
-					
-					if (ua != null) {
-						newline.add(ua.getLastName());
-						newline.add(ua.getFirstName());
-					}
-					writer.writeNext(newline.toArray(new String[]{}));
-				
-				
-				
+
+				Row thisRow = sheet.createRow((short)rowId);
+				rowId++;
+
+				User u = (User)sortedParticipants.next();
+				UserAliasItem ua = userAliasLogic.getUserAliasItemByIdForContext(u.getId(), context);
+				log.info("adding " + u.getEid() + " " + u.getLastName() + "to row:" + (rowId - 1));
+
+				thisRow.createCell(0).setCellValue(u.getEid());
+				thisRow.createCell(1).setCellValue(u.getLastName());
+				thisRow.createCell(3).setCellValue(u.getFirstName());
+
+				if (ua != null) {
+					thisRow.createCell(4).setCellValue(ua.getLastName());
+					thisRow.createCell(5).setCellValue(ua.getFirstName());
+				}
+
+
+
+
 			}
-			
-			
-			writer.close();
+			wb.write(outputStream);
+
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
