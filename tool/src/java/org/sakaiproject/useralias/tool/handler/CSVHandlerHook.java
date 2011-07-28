@@ -92,7 +92,6 @@ public class CSVHandlerHook implements HandlerHook {
 		CSVViewParamaters ivp;
 		
 		if (viewparams instanceof CSVViewParamaters) {
-			ivp = (CSVViewParamaters) viewparams;
 			log.debug("got a CSVViewParamaters");
 		} else {
 			log.debug("Not an csv view!: " + viewparams + ", " + viewparams.viewID);

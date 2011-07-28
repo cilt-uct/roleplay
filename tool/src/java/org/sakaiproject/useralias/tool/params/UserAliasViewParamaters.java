@@ -51,7 +51,6 @@ public class UserAliasViewParamaters extends SimpleViewParameters {
 	 */
 	
 	public UserAliasViewParamaters(String viewID) {
-		this.id = id;
 		this.viewID = viewID;
 	}
 
