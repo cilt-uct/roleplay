@@ -6,7 +6,7 @@
     <artifactId>useralias-base</artifactId>
     <groupId>org.sakaiproject</groupId>
     <version>0.3-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
+    <relativePath>../../pom.xml</relativePath>
   </parent>
   <name>sakai-useralias-pack</name>
   <groupId>org.sakaiproject</groupId>
