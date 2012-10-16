@@ -38,6 +38,7 @@
        <property name="maxElementsInMemory" value="10000"/>
        <property name="timeToIdle" value="7200"/>
        <property name="timeToLive" value="7200"/>
+       <property name="overflowToDisk" value="false" />
     </bean>
 
  <bean id="org.sakaiproject.useralias.itemCache"
@@ -49,6 +50,7 @@
        <property name="maxElementsInMemory" value="10000"/>
        <property name="timeToIdle" value="7200"/>
        <property name="timeToLive" value="7200"/>
+       <property name="overflowToDisk" value="false" />
     </bean>
 
 </beans>
