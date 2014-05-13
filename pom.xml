@@ -28,9 +28,6 @@
 				<artifactId>sakai-useralias-model-api
 				</artifactId>
 				<version>0.3-SNAPSHOT</version>
-				<!--
-					emailtemplateservice.version
-				-->
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
@@ -38,18 +35,11 @@
 				<artifactId>sakai-useralias-logic-api
 				</artifactId>
 				<version>0.3-SNAPSHOT</version>
-				<!--
-					emailtemplateservice.version
-				-->
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-hbm</artifactId>
-				<version>0.3-SNAPSHOT</version>
-				<!--
-					emailtemplateservice.version
-				-->
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
@@ -57,18 +47,12 @@
 				<artifactId>sakai-useralias-dao-impl
 				</artifactId>
 				<version>0.3-SNAPSHOT</version>
-				<!--
-					emailtemplateservice.version
-				-->
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-logic-impl
 				</artifactId>
 				<version>0.3-SNAPSHOT</version>
-				<!--
-					emailtemplateservice.version
-				-->
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
@@ -91,11 +75,11 @@
 	</repositories>
 	<scm>
 		<connection>
-			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/trunk/
+			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3
 		</connection>
 		<developerConnection>
-			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/trunk/
+			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3
 		</developerConnection>
-		<url>https://source.sakaiproject.org/contrib//uct/useralias/trunk/</url>
+		<url>https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3</url>
 	</scm>
 </project>
