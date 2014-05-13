@@ -5,7 +5,7 @@
   <parent>
     <artifactId>useralias-base</artifactId>
     <groupId>org.sakaiproject</groupId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <name>sakai-useralias-logic-api</name>
@@ -28,7 +28,7 @@
     <dependency>
       <groupId>org.sakaiproject</groupId>
       <artifactId>sakai-useralias-model-api</artifactId>
-      <version>0.3-SNAPSHOT</version>
+      <version>0.4-SNAPSHOT</version>
     </dependency>
 
 <!-- sakai dependencies -->

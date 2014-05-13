@@ -7,7 +7,7 @@
 		<version>2.9-SNAPSHOT</version>
         	<relativePath>../master/pom.xml</relativePath>
 	</parent>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.4-SNAPSHOT</version>
 	<name>Sakai role play tool</name>
 	<groupId>org.sakaiproject</groupId>
 	<artifactId>useralias-base</artifactId>
@@ -27,33 +27,33 @@
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-model-api
 				</artifactId>
-				<version>0.3-SNAPSHOT</version>
+				<version>0.4-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-logic-api
 				</artifactId>
-				<version>0.3-SNAPSHOT</version>
+				<version>0.4-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-hbm</artifactId>
-				<version>0.3-SNAPSHOT</version>
+				<version>0.4-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-dao-impl
 				</artifactId>
-				<version>0.3-SNAPSHOT</version>
+				<version>0.4-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-logic-impl
 				</artifactId>
-				<version>0.3-SNAPSHOT</version>
+				<version>0.4-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
