@@ -40,6 +40,7 @@
 			<dependency>
 				<groupId>org.sakaiproject</groupId>
 				<artifactId>sakai-useralias-hbm</artifactId>
+				<version>0.3-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
