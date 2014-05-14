@@ -31,7 +31,7 @@ import org.sakaiproject.entitybroker.DeveloperHelperService;
 import org.sakaiproject.genericdao.api.search.Restriction;
 import org.sakaiproject.genericdao.api.search.Search;
 import org.sakaiproject.memory.api.MemoryService;
-import org.sakaiproject.memory.api.MultiRefCache;
+import org.sakaiproject.memory.api.Cache;
 import org.sakaiproject.user.api.ContextualUserDisplayService;
 import org.sakaiproject.user.api.User;
 import org.sakaiproject.useralias.dao.impl.UserAliasDao;
@@ -46,8 +46,8 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	/**
 	 * Cache for site lookups
 	 */
-	protected MultiRefCache siteCache = null;
-	protected MultiRefCache itemCache = null;
+	protected Cache siteCache = null;
+	protected Cache itemCache = null;
 
 	/** The # minutes to cache the lookup answers. 0 disables the cache. */
 	protected int m_cacheMinutes = 60;
@@ -68,8 +68,8 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 
 	public void init(){
 		
-		siteCache = m_memoryService.newMultiRefCache("org.sakaiproject.useralias.siteCache");
-		itemCache = m_memoryService.newMultiRefCache("org.sakaiproject.useralias.itemCache");
+		siteCache = m_memoryService.getCache("org.sakaiproject.useralias.siteCache");
+		itemCache = m_memoryService.getCache("org.sakaiproject.useralias.itemCache");
 
 		log.info("init()");
 		
@@ -142,7 +142,7 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 		
 		if (siteCache != null) {
 			log.debug("adding site: " + realmId + " to cache with value: " + found);
-			siteCache.put(realmId, Boolean.valueOf(found), m_cacheMinutes * 60, null, azgIds);
+			siteCache.put(realmId, Boolean.valueOf(found));
 		}
 		
 		return found;
@@ -223,10 +223,10 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 				
 				if (userAliasItem != null) {
 					// Cache positive lookup						
-					itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem(userAliasItem), m_cacheMinutes * 60, null, azgIds);
+					itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem(userAliasItem));
 				} else {
 					// Not found - cache negative lookup
-					itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem(), m_cacheMinutes * 60, null, azgIds);
+					itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem());
 				}
 			} else {
 				log.debug("found item: " + user.getId() + "/" + contextReference + " in cache");
