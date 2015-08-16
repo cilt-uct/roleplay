@@ -6,8 +6,7 @@
 <beans>
 
 	<!-- handles configuration of internationalization messages -->
-	<bean id="messageLocator"
-		class="uk.org.ponder.springutil.SpringMessageLocator">
+	<bean id="messageLocator" class="uk.org.ponder.springutil.SpringMessageLocator">
 		<property name="messageSource">
 			<bean
 				class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
@@ -30,43 +29,59 @@
 
 
 
- <!--  <bean parent="writeGuardParent">
-    <property name="guardedPath" value="UserAliasItem.*"/>
-    <property name="guardProperty" value="userAliasTransit.userAlias"/>
-  </bean>-->
-  
-   <bean id="aliasGuard" parent="writeGuardParent">
-     <property name="guardedPath" value="userAliasItem"/>
-     <property name="guard">
-     <bean id="userAliasTransit" class="org.sakaiproject.useralias.tool.UserAliasTransit">
-	 </bean>
-     </property>
-   </bean>
-	<!-- For security purposes, only beans listed in the comma separated value list
-			may be the target of EL operations coming in over the request -->
+	<!-- <bean parent="writeGuardParent"> <property name="guardedPath" value="UserAliasItem.*"/> 
+		<property name="guardProperty" value="userAliasTransit.userAlias"/> </bean> -->
+
+	<bean id="aliasGuard" parent="writeGuardParent">
+		<property name="guardedPath" value="userAliasItem" />
+		<property name="guard">
+			<bean id="userAliasTransit" class="org.sakaiproject.useralias.tool.UserAliasTransit">
+			</bean>
+		</property>
+	</bean>
+	<!-- For security purposes, only beans listed in the comma separated value 
+		list may be the target of EL operations coming in over the request -->
 	<bean parent="requestAddressibleParent">
-			<property name="value" value="userAliasTransit, userAliasItem, userAliasItemBeanLocator, itemBean"/>
+		<property name="value"
+			value="userAliasTransit, userAliasItem, userAliasItemBeanLocator, itemBean" />
 	</bean>
 
 	<!-- Control the location of the html templates (default: content/templates/) -->
 	<bean id="templateResolverStrategy" parent="CRITemplateResolverStrategy">
 		<property name="baseDirectory" value="templates/" />
 	</bean>
-	
-		<bean parent="handlerHookParent">
+  
+	<bean parent="handlerHookParent">
 		<property name="value">
 			<bean parent="RSACBridgeProxy">
-				<property name="targetBeanName"	value="CSVHandlerHook" />
+				<property name="targetBeanName" value="CSVHandlerHook" />
 			</bean>
 		</property>
 	</bean>
 
- 
-   <!-- View Params For Reporting Types -->
-   <bean parent="viewParamsRegistrarParent">
-      <property name="viewID" value="CSVHandlerHook" />
-      <property name="viewParamsClass"
-       value="org.sakaiproject.useralias.tool.params.CSVViewParamaters" />
-   </bean>
-   
-   </beans>
+
+	
+	<bean parent="viewParamsRegistrarParent">
+		<property name="viewID" value="CSVHandlerHook" />
+		<property name="viewParamsClass"
+			value="org.sakaiproject.useralias.tool.params.CSVViewParamaters" />
+	</bean>
+	
+	
+		<bean parent="handlerHookParent">
+		<property name="value">
+			<bean parent="RSACBridgeProxy">
+				<property name="targetBeanName" value="XLSXHandlerHook" />
+			</bean>
+		</property>
+	</bean>
+
+
+	
+	<bean parent="viewParamsRegistrarParent">
+		<property name="viewID" value="XLSXHandlerHook" />
+		<property name="viewParamsClass"
+			value="org.sakaiproject.useralias.tool.params.XLSXViewParamaters" />
+	</bean>
+
+</beans>

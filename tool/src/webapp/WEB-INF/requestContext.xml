@@ -20,6 +20,7 @@
 			ref="org.sakaiproject.user.api.UserDirectoryService" />
 		<property name="logic"
 			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
+			<property name="serverConfigurationService" ref="org.sakaiproject.component.api.ServerConfigurationService"/>
 
 	</bean>
 
@@ -58,5 +59,20 @@
 		<property name="userDirectoryService"
 			ref="org.sakaiproject.user.api.UserDirectoryService" />
 		<property name="viewparams" ref="viewParameters" />
+	</bean>
+	
+		<bean id="XLSXHandlerHook"
+		class="org.sakaiproject.useralias.tool.handler.XLSXHandlerHook">
+		<property name="toolManager"
+			ref="org.sakaiproject.tool.api.ToolManager" />
+		<property name="logic"
+			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
+		<property name="response" ref="httpServletResponse" />
+		<property name="authzGroupService"
+			ref="org.sakaiproject.authz.api.AuthzGroupService" />
+		<property name="userDirectoryService"
+			ref="org.sakaiproject.user.api.UserDirectoryService" />
+		<property name="viewparams" ref="viewParameters" />
+		
 	</bean>
 </beans>
