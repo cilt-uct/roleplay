@@ -43,6 +43,7 @@
 <dependency>
       <groupId>org.sakaiproject</groupId>
       <artifactId>generic-dao</artifactId>
+      <version>${generic-dao.version}</version>
     </dependency>
      <!-- spring and hibernate -->
         <dependency>

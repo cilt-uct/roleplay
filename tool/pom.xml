@@ -19,9 +19,6 @@
 	<inceptionYear>2006</inceptionYear>
 	<!-- You must deploy your tool as a war file -->
 	<packaging>war</packaging>
-	<properties>
-		<rsfutil.version>0.8.0-SNAPSHOT</rsfutil.version>
-	</properties>
 	<dependencies>
 
 		<!-- Servlet dependency -->
@@ -66,10 +63,9 @@
 		<!-- begin standard RSF dependencies here -->
 
 		<dependency>
-			<groupId>uk.org.ponder.sakairsf</groupId>
-			<artifactId>sakairsf</artifactId>
-			<version>${rsfutil.version}</version>
-			<type>jar</type>
+			<groupId>org.sakaiproject.rsf</groupId>
+			<artifactId>sakai-rsf-core</artifactId>
+			<version>11-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
