@@ -78,33 +78,4 @@
 		</developerConnection>
 		<url>https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3</url>
 	</scm>
-<!--<build>
-        <plugins>
-<plugin>
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>license-maven-plugin</artifactId>
-  <version>1.8</version>
-  <configuration>
-      <licenseName>ecl_v2</licenseName>
-      <licenseResolver>classpath://org/sakaiproject</licenseResolver>
-  </configuration>
-  <executions>
-      <execution>
-          <goals>
-              <goal>update-file-header</goal>
-          </goals>
-          <phase>process-sources</phase>
-      </execution>
-  </executions>
-  <dependencies>
-      <dependency>
-          <groupId>org.sakaiproject.license</groupId>
-          <artifactId>ecl-license</artifactId>
-          <version>1.0</version>
-      </dependency>
-  </dependencies>
-</plugin>
-	</plugins>
-</build>-->
-
 </project>
