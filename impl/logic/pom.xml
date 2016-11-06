@@ -42,11 +42,10 @@
       <version>11-SNAPSHOT</version>
     </dependency>
 <!-- generic DAO -->
-  	<dependency>
-  		<groupId>org.sakaiproject</groupId>
-  		<artifactId>generic-dao</artifactId>
-  		<version>${generic-dao.version}</version>
-  	</dependency>
+        <dependency>
+            <groupId>org.sakaiproject.genericdao</groupId>
+            <artifactId>generic-dao</artifactId>
+        </dependency>
      <!-- spring and hibernate -->
         <dependency>
             <groupId>org.springframework</groupId>
