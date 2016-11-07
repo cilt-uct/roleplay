@@ -8,7 +8,7 @@
         	<relativePath>../master/pom.xml</relativePath>
 	</parent>
 	<version>11-SNAPSHOT</version>
-	<name>Sakai role play tool</name>
+	<name>Sakai user alias tool</name>
 	<groupId>org.sakaiproject</groupId>
 	<artifactId>useralias-base</artifactId>
 	<packaging>pom</packaging>
@@ -71,11 +71,11 @@
 	</repositories>
 	<scm>
 		<connection>
-			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3
+			scm:svn:https://source.sakaiproject.org/contrib/uct/useralias/trunk
 		</connection>
 		<developerConnection>
-			scm:svn:https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3
+			scm:svn:https://source.sakaiproject.org/contrib/uct/useralias/trunk
 		</developerConnection>
-		<url>https://source.sakaiproject.org/contrib//uct/useralias/branches/useralias-0.3</url>
+		<url>https://source.sakaiproject.org/contrib/uct/useralias/trunk</url>
 	</scm>
 </project>
