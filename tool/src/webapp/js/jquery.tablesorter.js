@@ -1003,6 +1003,17 @@
             return $(cell).metadata()[p];
         }, type: "numeric"
     });
+    ts.addParser({
+        id: "inputValue",
+        is: function(s) {
+          return false;
+        },
+        format: function(s, table, cell) {
+          console.log($('input[type="text"]', cell));
+          return ($('input[type="text"]', cell).length > 0 ? $('input[type="text"]', cell).val() : $('span', cell).html());
+        },
+        type: "text"
+    });
     // add default widgets
     ts.addWidget({
         id: "zebra",
