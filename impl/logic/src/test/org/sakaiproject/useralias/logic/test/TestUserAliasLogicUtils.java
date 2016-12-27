@@ -27,18 +27,20 @@ import org.sakaiproject.useralias.logic.impl.UserAliasLogicImpl;
 import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.model.UserAliasSite;
 import org.sakaiproject.useralias.test.UserAliasTestDataLoad;
-import org.springframework.test.AbstractTransactionalSpringContextTests;
 
-
-
-
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Testing the template processing logic
  * 
  * @author Aaron Zeckoski (aaron@caret.cam.ac.uk)
  */
-public class TestUserAliasLogicUtils extends AbstractTransactionalSpringContextTests {
+public class TestUserAliasLogicUtils extends AbstractJUnit4SpringContextTests {
 
 	private static final String SITE_1_ID = "/site/dgsdgsadgasdf";
  
@@ -67,34 +69,29 @@ public class TestUserAliasLogicUtils extends AbstractTransactionalSpringContextT
 	      //ual.setCache(memoryService.newCache("org.sakaiproject.useralias.logic.impl.UserAliasLogic.siteCache"));
 	   }
 
-
-	
    /**
     * Test method for {@link org.sakaiproject.evaluation.logic.impl.utils.TextTemplateLogicUtils#processTextTemplate(java.lang.String, java.util.Map)}.
     */
+   @Test
    public void testUserAliasLogic() {
-	   UserAliasSite site1 = new UserAliasSite();
-	   site1.setSiteId(SITE_1_ID);
-	   dao.save(site1);
-	   assertNotNull(site1.getId());
+	UserAliasSite site1 = new UserAliasSite();
+	site1.setSiteId(SITE_1_ID);
+	dao.save(site1);
+	Assert.assertNotNull(site1.getId());
 	   
-	  assertTrue(ual.realmIsAliased(SITE_1_ID));
-	  assertFalse(ual.realmIsAliased("aasdfasdgasdf"));
+	Assert.assertTrue(ual.realmIsAliased(SITE_1_ID));
+	Assert.assertFalse(ual.realmIsAliased("aasdfasdgasdf"));
 	  
+	//test the name stuff
+	UserAliasItem item1 = new UserAliasItem();
+	item1.setContext(SITE_1_ID);
+	item1.setEid("dDuck");
+	item1.setFirstName("Daffy");
+	item1.setLastName("Duck");
+	item1.setUserId("user1");
+	dao.save(item1);
 	  
-	  //test the name stuff
-	  UserAliasItem item1 = new UserAliasItem();
-	  item1.setContext(SITE_1_ID);
-	  item1.setEid("dDuck");
-	  item1.setFirstName("Daffy");
-	  item1.setLastName("Duck");
-	  item1.setUserId("user1");
-	  dao.save(item1);
-	  
-	  assertNotNull(item1.getId());
-	  assertNotNull(ual.getUserAliasItemByIdForContext("user1", SITE_1_ID));
-	  
-	  
+	Assert.assertNotNull(item1.getId());
+	Assert.assertNotNull(ual.getUserAliasItemByIdForContext("user1", SITE_1_ID));
    }  
-
 }

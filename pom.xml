@@ -12,6 +12,9 @@
 	<groupId>org.sakaiproject</groupId>
 	<artifactId>useralias-base</artifactId>
 	<packaging>pom</packaging>
+	<properties>
+		<skipTests>true</skipTests>
+	</properties>
 	<modules>
 		<module>api/logic</module>
 		<module>api/model</module>
