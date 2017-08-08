@@ -6,11 +6,11 @@
     <artifactId>roleplay-base</artifactId>
     <groupId>org.sakaiproject.roleplay</groupId>
     <version>11-SNAPSHOT</version>
-    <relativePath>../../pom.xml</relativePath>
+    <relativePath>../pom.xml</relativePath>
   </parent>
-  <name>roleplay-model-api</name>
+  <name>roleplay-api</name>
   <groupId>org.sakaiproject.roleplay</groupId>
-  <artifactId>useralias-model-api</artifactId>
+  <artifactId>roleplay-api</artifactId>
   <organization>
     <name>Sakai Project</name>
     <url>http://www.sakaiproject.org/</url>
