@@ -3,14 +3,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>useralias-base</artifactId>
-    <groupId>org.sakaiproject</groupId>
+    <artifactId>roleplay-base</artifactId>
+    <groupId>org.sakaiproject.roleplay</groupId>
     <version>11-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <name>sakai-useralias-logic-impl</name>
-  <groupId>org.sakaiproject</groupId>
-  <artifactId>sakai-useralias-logic-impl</artifactId>
+  <name>roleplay-logic-impl</name>
+  <groupId>org.sakaiproject.roleplay</groupId>
+  <artifactId>useralias-logic-impl</artifactId>
   <organization>
     <name>Sakai Project</name>
     <url>http://www.sakaiproject.org/</url>
@@ -25,21 +25,16 @@
 <!-- Sakai plugin so we can run maven builds from this directory -->
 <!-- internal dependencies -->
     <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-model-api</artifactId>
-      <version>11-SNAPSHOT</version>
-      <scope>provided</scope>
+      <groupId>org.sakaiproject.roleplay</groupId>
+      <artifactId>useralias-model-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-logic-api</artifactId>
-      <version>11-SNAPSHOT</version>
-      <scope>provided</scope>
+      <groupId>org.sakaiproject.roleplay</groupId>
+      <artifactId>useralias-logic-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-dao-impl</artifactId>
-      <version>11-SNAPSHOT</version>
+      <groupId>org.sakaiproject.roleplay</groupId>
+      <artifactId>useralias-dao-impl</artifactId>
     </dependency>
 <!-- generic DAO -->
         <dependency>
@@ -180,14 +175,11 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.1</version>
-            <scope>test</scope>
         </dependency>
 <!-- needed if we are testing the logic class using a working DAO -->
     <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-hbm</artifactId>
-      <version>11-SNAPSHOT</version>
+      <groupId>org.sakaiproject.roleplay</groupId>
+      <artifactId>useralias-hbm</artifactId>
     </dependency>
   </dependencies>
   <build>
