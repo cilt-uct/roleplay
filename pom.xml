@@ -5,7 +5,7 @@
 		<artifactId>master</artifactId>
 		<groupId>org.sakaiproject</groupId>
 		<version>11-SNAPSHOT</version>
-        	<relativePath>../master/pom.xml</relativePath>
+        <relativePath>../master/pom.xml</relativePath>
 	</parent>
 	<version>11-SNAPSHOT</version>
 	<name>Sakai user alias tool</name>
@@ -73,12 +73,15 @@
 		</repository>
 	</repositories>
 	<scm>
-		<connection>
-			scm:svn:https://source.sakaiproject.org/contrib/uct/useralias/trunk
-		</connection>
-		<developerConnection>
-			scm:svn:https://source.sakaiproject.org/contrib/uct/useralias/trunk
-		</developerConnection>
-		<url>https://source.sakaiproject.org/contrib/uct/useralias/trunk</url>
+		<connection>scm:git:git://github.com/cilt-uct/Roleplay</connection>
+		<developerConnection>scm:git:ssh://github.com/cilt-uct/Roleplay</developerConnection>
+		<url>https://github.com/cilt-uct/Roleplay</url>
 	</scm>
+  <licenses>
+    <license>
+      <name>Educational Community License, Version 2.0</name>
+      <url>http://www.opensource.org/licenses/ecl2.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 </project>
