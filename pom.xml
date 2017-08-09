@@ -16,10 +16,8 @@
 		<skipTests>true</skipTests>
 	</properties>
 	<modules>
-		<module>api/logic</module>
-		<module>api/model</module>
+		<module>api</module>
 		<module>impl/dao</module>
-		<module>impl/hbm</module>
 		<module>impl/logic</module>
 		<module>impl/pack</module>
 		<module>tool</module>
@@ -28,21 +26,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.sakaiproject.roleplay</groupId>
-				<artifactId>useralias-model-api
-				</artifactId>
-				<version>11-SNAPSHOT</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.sakaiproject.roleplay</groupId>
-				<artifactId>useralias-logic-api
-				</artifactId>
-				<version>11-SNAPSHOT</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.sakaiproject.roleplay</groupId>
-				<artifactId>useralias-hbm</artifactId>
+				<artifactId>roleplay-api</artifactId>
 				<version>11-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>

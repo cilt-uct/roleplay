@@ -26,17 +26,7 @@
 <!-- Evaluation dependencies -->
     <dependency>
       <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-model-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-logic-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-hbm</artifactId>
+      <artifactId>roleplay-api</artifactId>
       <scope>provided</scope>
     </dependency>
 <!-- generic DAO -->

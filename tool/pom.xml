@@ -9,7 +9,7 @@
 	</parent>
 	<name>useralias-tool</name>
 	<groupId>org.sakaiproject.roleplay</groupId>
-	<artifactId>useralias-tool</artifactId>
+	<artifactId>sakai-useralias-tool</artifactId>
 	<organization>
 		<name>Sakai Project</name>
 		<url>http://www.sakaiproject.org/</url>
@@ -39,11 +39,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.sakaiproject.roleplay</groupId>
-			<artifactId>useralias-logic-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.sakaiproject.roleplay</groupId>
-			<artifactId>useralias-model-api</artifactId>
+			<artifactId>roleplay-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.sakaiproject.entitybroker</groupId>

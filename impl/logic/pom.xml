@@ -26,11 +26,7 @@
 <!-- internal dependencies -->
     <dependency>
       <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-model-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-logic-api</artifactId>
+      <artifactId>roleplay-api</artifactId>
     </dependency>
     <dependency>
       <groupId>org.sakaiproject.roleplay</groupId>
@@ -176,11 +172,6 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
         </dependency>
-<!-- needed if we are testing the logic class using a working DAO -->
-    <dependency>
-      <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-hbm</artifactId>
-    </dependency>
   </dependencies>
   <build>
     <resources />
