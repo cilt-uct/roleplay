@@ -6,7 +6,7 @@ Roleplay (aka "user alias") is a tool and service for Sakai 2.6.0 and later whic
 * JIRA (bug reports and feature requests): http://jira.sakaiproject.org/browse/RPLAY
 ## Using the tool
 1. Add the useralias project to your source tree (2.6.0, 2-6-x or later). If you use an .externals file to manage your source tree, add a line such as this:
-useralias       https://source.sakaiproject.org/contrib/uct/useralias/trunk/
+`useralias        https://github.com/cilt-uct/Roleplay/branches/sakai-11.x`
 2. To "stealth" the tool so that it does not show up in the regular list of available tools for a site, add it to your hiddenTools list in sakai.properties, e.g.
 hiddenTools@org.sakaiproject.tool.api.ActiveToolManager=sakai.useralias
 3. Add the tool to the site(s) in which you wish to use it through Site Info / Edit Tools, or the Admin Sites editor if the tool is stealthed.
