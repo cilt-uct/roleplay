@@ -2,8 +2,9 @@
 ## Description:
 Roleplay (aka "user alias") is a tool and service for Sakai 2.6.0 and later which allows users to be known as a name other than their default Sakai name within a site. It was originally developed at UCT for an international trade bargaining simulation game in which students were known by country names representing their teams (e.g. "Brazil 2A") rather than realm names.
 ## Where to go?
-* Source: https://github.com/cilt-uct/Roleplay/
+* Source: https://github.com/cilt-uct/roleplay/
 * JIRA (bug reports and feature requests): http://jira.sakaiproject.org/browse/RPLAY
+* Community wiki: https://confluence.sakaiproject.org/display/RPLAY/Home
 ## Using the tool
 1. Add the useralias project to your source tree (2.6.0, 2-6-x or later). If you use an .externals file to manage your source tree, add a line such as this:
 `useralias        https://github.com/cilt-uct/Roleplay/branches/sakai-11.x`
