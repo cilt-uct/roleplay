@@ -3,14 +3,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>useralias-base</artifactId>
-    <groupId>org.sakaiproject</groupId>
+    <artifactId>roleplay-base</artifactId>
+    <groupId>org.sakaiproject.roleplay</groupId>
     <version>11-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <name>sakai-useralias-dao-impl</name>
-  <groupId>org.sakaiproject</groupId>
-  <artifactId>sakai-useralias-dao-impl</artifactId>
+  <name>roleplay-dao-impl</name>
+  <groupId>org.sakaiproject.roleplay</groupId>
+  <artifactId>useralias-dao-impl</artifactId>
   <organization>
     <name>Sakai Project</name>
     <url>http://www.sakaiproject.org/</url>
@@ -25,18 +25,8 @@
 <!-- Sakai plugin so we can run maven builds from this directory -->
 <!-- Evaluation dependencies -->
     <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-model-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-logic-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sakaiproject</groupId>
-      <artifactId>sakai-useralias-hbm</artifactId>
+      <groupId>org.sakaiproject.roleplay</groupId>
+      <artifactId>roleplay-api</artifactId>
       <scope>provided</scope>
     </dependency>
 <!-- generic DAO -->
