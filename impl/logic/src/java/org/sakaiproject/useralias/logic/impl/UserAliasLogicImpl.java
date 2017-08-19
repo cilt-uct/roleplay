@@ -25,8 +25,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger; 
+import org.slf4j.LoggerFactory;
 import org.sakaiproject.entitybroker.DeveloperHelperService;
 import org.sakaiproject.genericdao.api.search.Restriction;
 import org.sakaiproject.genericdao.api.search.Search;
@@ -41,7 +41,7 @@ import org.sakaiproject.useralias.model.UserAliasSite;
 
 public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplayService {
 
-	private static Log log = LogFactory.getLog(UserAliasLogicImpl.class);
+	private static Logger log = LoggerFactory.getLogger(UserAliasLogicImpl.class);
 	
 	/**
 	 * Cache for site lookups

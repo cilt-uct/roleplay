@@ -30,8 +30,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -48,13 +46,15 @@ import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.tool.params.XLSXViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
 public class XLSXHandlerHook implements HandlerHook {
 
-	private static Log log = LogFactory.getLog(XLSXHandlerHook.class);
+	private static Logger log = LoggerFactory.getLogger(XLSXHandlerHook.class);
 
 	private HttpServletResponse response;
 	public void setResponse(HttpServletResponse response) {

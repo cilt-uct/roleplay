@@ -47,11 +47,6 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Apache commons dependencies -->
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-		</dependency>
 		<!-- needed for generating CSVs for export -->
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>

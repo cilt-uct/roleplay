@@ -76,12 +76,7 @@
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
         </dependency>
-        
-<!-- Commons JARS put in shared/lib by Sakai -->
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-    </dependency>
+
   </dependencies>
   <build>
     <resources />

@@ -26,8 +26,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.authz.api.AuthzGroup;
 import org.sakaiproject.authz.api.AuthzGroupService;
 import org.sakaiproject.authz.api.Member;
@@ -47,6 +45,8 @@ import org.sakaiproject.useralias.tool.params.CSVViewParamaters;
 import org.sakaiproject.useralias.tool.params.XLSXViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.org.ponder.rsf.components.UIBranchContainer;
 import uk.org.ponder.rsf.components.UICommand;
@@ -70,7 +70,7 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 		return VIEW_ID;
 	}
 
-	private static Log log = LogFactory.getLog(MainViewProducer.class);
+	private static Logger log = LoggerFactory.getLogger(MainViewProducer.class);
 
 	private SiteService siteService;
 
