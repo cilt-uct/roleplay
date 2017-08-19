@@ -24,9 +24,10 @@ package org.sakaiproject.useralias.tool.util;
 
 import java.util.Comparator;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
 import org.sakaiproject.user.api.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * the SiteComparator class
@@ -34,7 +35,7 @@ import org.sakaiproject.user.api.User;
 public class SiteComparator
 	implements Comparator<User>
 {
-	private static Log log = LogFactory.getLog(SiteComparator.class);
+	private static Logger log = LoggerFactory.getLogger(SiteComparator.class);
 	
 	
 	

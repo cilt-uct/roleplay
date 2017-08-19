@@ -25,19 +25,19 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.authz.api.AuthzGroupService;
 import org.sakaiproject.entitybroker.DeveloperHelperService;
 import org.sakaiproject.event.api.EventTrackingService;
 import org.sakaiproject.event.api.NotificationService;
 import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.org.ponder.beanutil.BeanLocator;
 
 public class UserAliasItemBeanLocator implements BeanLocator {
-	private static Log log = LogFactory.getLog(UserAliasItemBeanLocator.class);
+	private static Logger log = LoggerFactory.getLogger(UserAliasItemBeanLocator.class);
 	public static final String NEW_PREFIX = "new";
 	
 	private Map<String, Object> delivered = new HashMap<String, Object>();

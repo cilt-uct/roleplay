@@ -21,13 +21,14 @@
 
 package org.sakaiproject.useralias.tool;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
 import org.sakaiproject.useralias.model.UserAliasItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UserAliasTransit {
 
-	private static Log log = LogFactory.getLog(UserAliasTransit.class);
+	private static Logger log = LoggerFactory.getLogger(UserAliasTransit.class);
 	
 	private UserAliasItem userAlias;
 	

@@ -30,8 +30,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -49,13 +48,15 @@ import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.tool.params.CSVViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
 public class CSVHandlerHook implements HandlerHook {
 
-	private static Log log = LogFactory.getLog(CSVHandlerHook.class);
+	private static Logger log = LoggerFactory.getLogger(CSVHandlerHook.class);
 
 	private HttpServletResponse response;
 	public void setResponse(HttpServletResponse response) {
