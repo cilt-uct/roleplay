@@ -154,7 +154,7 @@ public class XLSXHandlerHook implements HandlerHook {
 
 				}
 
-				Iterator sortedParticipants = null;
+				Iterator<User> sortedParticipants = null;
 				sortedParticipants = new SortedIterator(userList.iterator(),
 						new SiteComparator(SiteComparator.SORTED_BY_PARTICIPANT_NAME, "sortedAsc"));
 				userList.clear();

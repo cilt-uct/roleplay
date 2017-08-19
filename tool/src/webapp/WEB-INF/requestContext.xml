@@ -55,6 +55,7 @@
 		<property name="userDirectoryService"
 			ref="org.sakaiproject.user.api.UserDirectoryService" />
 		<property name="viewparams" ref="viewParameters" />
+		<property name="messageLocator" ref="messageLocator" />
 	</bean>
 	
 	<bean id="XLSXHandlerHook"
@@ -69,6 +70,6 @@
 		<property name="userDirectoryService"
 			ref="org.sakaiproject.user.api.UserDirectoryService" />
 		<property name="viewparams" ref="viewParameters" />
-		<property name="messages" ref="targettedMessageList" />
+		<property name="messageLocator" ref="messageLocator" />
 		</bean>
 </beans>
