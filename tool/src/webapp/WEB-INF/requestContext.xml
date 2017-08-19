@@ -69,5 +69,6 @@
 		<property name="userDirectoryService"
 			ref="org.sakaiproject.user.api.UserDirectoryService" />
 		<property name="viewparams" ref="viewParameters" />
-	</bean>
+		<property name="messages" ref="targettedMessageList" />
+		</bean>
 </beans>

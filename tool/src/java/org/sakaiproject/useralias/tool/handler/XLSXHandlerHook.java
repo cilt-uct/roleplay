@@ -49,6 +49,7 @@ import org.sakaiproject.util.SortedIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.org.ponder.messageutil.MessageLocator;
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
@@ -85,6 +86,12 @@ public class XLSXHandlerHook implements HandlerHook {
 	public void setUserDirectoryService(UserDirectoryService uds) {
 		this.userDirectoryService = uds;
 	}
+	
+	private MessageLocator messageLocator;
+	public void setMessageLocator(MessageLocator messageLocator) {
+		this.messageLocator = messageLocator;
+	}
+
 
 	@Override
 	public boolean handle() {
@@ -100,7 +107,7 @@ public class XLSXHandlerHook implements HandlerHook {
 		log.debug("handling the XLSX request!");
 
 		// set the headers
-		response.setHeader("Content-disposition", "attachment;filename=\"useralias.xlsx\"");
+		response.setHeader("Content-disposition", "attachment;filename=\"" + messageLocator.getMessage("filename") + ".xlsx\"");
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
 		OutputStream outputStream;
