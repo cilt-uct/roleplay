@@ -51,6 +51,7 @@ import org.sakaiproject.util.SortedIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.org.ponder.messageutil.MessageLocator;
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
@@ -87,7 +88,11 @@ public class CSVHandlerHook implements HandlerHook {
 	public void setUserDirectoryService(UserDirectoryService uds) {
 		this.userDirectoryService = uds;
 	}
-
+	
+	private MessageLocator messageLocator;
+	public void setMessageLocator(MessageLocator messageLocator) {
+		this.messageLocator = messageLocator;
+	}
 	public boolean handle() {
 
 
@@ -101,7 +106,7 @@ public class CSVHandlerHook implements HandlerHook {
 		log.debug("handling the CSV request!");
 
 		//set the headers
-		response.setHeader("Content-disposition", "attachment;filename=\"useralias.xls\"");
+		response.setHeader("Content-disposition", "attachment;filename=\"" + messageLocator.getMessage("filename") + "\"");
 		response.setContentType("application/xls");
 		//response.setHeader("filename", "useralias.csv");
 
@@ -146,7 +151,7 @@ public class CSVHandlerHook implements HandlerHook {
 
 			}
 
-			Iterator sortedParticipants = null;
+			Iterator<User> sortedParticipants = null;
 			sortedParticipants = new SortedIterator (userList.iterator (), new SiteComparator (SiteComparator.SORTED_BY_PARTICIPANT_NAME, "sortedAsc"));
 			userList.clear();
 			int rowId = 1;
