@@ -24,15 +24,16 @@ package org.sakaiproject.useralias.tool;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger; 
-import org.slf4j.LoggerFactory;
 import org.sakaiproject.user.api.UserDirectoryService;
 import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.tool.locators.UserAliasItemBeanLocator;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class AliasBean {
-	private static Logger log = LoggerFactory.getLogger(AliasBean.class);
+
 	public UserAliasItem userAlias = new UserAliasItem(); 
 	public String newEid = null;
 	

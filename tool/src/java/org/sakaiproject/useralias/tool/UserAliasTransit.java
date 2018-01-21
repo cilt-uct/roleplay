@@ -23,12 +23,12 @@ package org.sakaiproject.useralias.tool;
 
 
 import org.sakaiproject.useralias.model.UserAliasItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class UserAliasTransit {
 
-	private static Logger log = LoggerFactory.getLogger(UserAliasTransit.class);
 	
 	private UserAliasItem userAlias;
 	

@@ -25,13 +25,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
 
-import org.slf4j.Logger; 
-import org.slf4j.LoggerFactory;
 import org.sakaiproject.entitybroker.DeveloperHelperService;
 import org.sakaiproject.genericdao.api.search.Restriction;
 import org.sakaiproject.genericdao.api.search.Search;
-import org.sakaiproject.memory.api.MemoryService;
 import org.sakaiproject.memory.api.Cache;
+import org.sakaiproject.memory.api.MemoryService;
 import org.sakaiproject.user.api.ContextualUserDisplayService;
 import org.sakaiproject.user.api.User;
 import org.sakaiproject.useralias.dao.impl.UserAliasDao;
@@ -39,15 +37,18 @@ import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.model.UserAliasSite;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplayService {
 
-	private static Logger log = LoggerFactory.getLogger(UserAliasLogicImpl.class);
+
 	
 	/**
 	 * Cache for site lookups
 	 */
-	protected Cache siteCache = null;
-	protected Cache itemCache = null;
+	protected Cache<String, Boolean> siteCache = null;
+	protected Cache<String, UserAliasItem> itemCache = null;
 
 	/** The # minutes to cache the lookup answers. 0 disables the cache. */
 	protected int m_cacheMinutes = 60;

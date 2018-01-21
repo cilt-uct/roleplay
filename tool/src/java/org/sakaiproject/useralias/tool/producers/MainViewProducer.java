@@ -45,9 +45,8 @@ import org.sakaiproject.useralias.tool.params.CSVViewParamaters;
 import org.sakaiproject.useralias.tool.params.XLSXViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.rsf.components.UIBranchContainer;
 import uk.org.ponder.rsf.components.UICommand;
 import uk.org.ponder.rsf.components.UIContainer;
@@ -62,6 +61,7 @@ import uk.org.ponder.rsf.view.DefaultView;
 import uk.org.ponder.rsf.view.ViewComponentProducer;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
+@Slf4j
 public class MainViewProducer implements DefaultView, ViewComponentProducer {
 
 	public static final String VIEW_ID = "aliasUser";
@@ -70,7 +70,6 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 		return VIEW_ID;
 	}
 
-	private static Logger log = LoggerFactory.getLogger(MainViewProducer.class);
 
 	private SiteService siteService;
 
@@ -163,7 +162,7 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 			}
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			log.warn(e.getMessage(), e);
 		}
 
 		try {
@@ -245,7 +244,7 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 				UICommand.make(form, "submit", UIMessage.make("Update"), "userAliasItemBeanLocator.saveAll");
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.warn(e.getMessage(), e);
 		}
 
 	}

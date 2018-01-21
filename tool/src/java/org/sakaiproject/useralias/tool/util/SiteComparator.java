@@ -24,18 +24,17 @@ package org.sakaiproject.useralias.tool.util;
 
 import java.util.Comparator;
 
-
 import org.sakaiproject.user.api.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * the SiteComparator class
  */
+@Slf4j
 public class SiteComparator
 	implements Comparator<User>
 {
-	private static Logger log = LoggerFactory.getLogger(SiteComparator.class);
 	
 	
 	

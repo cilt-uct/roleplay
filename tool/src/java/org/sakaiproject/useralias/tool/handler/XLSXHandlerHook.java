@@ -46,16 +46,15 @@ import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.tool.params.XLSXViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.messageutil.MessageLocator;
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
+@Slf4j
 public class XLSXHandlerHook implements HandlerHook {
 
-	private static Logger log = LoggerFactory.getLogger(XLSXHandlerHook.class);
 
 	private HttpServletResponse response;
 	public void setResponse(HttpServletResponse response) {
@@ -196,11 +195,9 @@ public class XLSXHandlerHook implements HandlerHook {
 			//}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn(e.getMessage(), e);
 		} catch (GroupNotDefinedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn(e.getMessage(), e);
 		}
 
 
