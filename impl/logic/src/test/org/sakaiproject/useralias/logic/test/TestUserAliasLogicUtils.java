@@ -21,8 +21,6 @@
 
 package org.sakaiproject.useralias.logic.test;
 
-import org.slf4j.Logger; 
-import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,17 +32,19 @@ import org.sakaiproject.useralias.model.UserAliasSite;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Testing the template processing logic
  * 
  * @author Aaron Zeckoski (aaron@caret.cam.ac.uk)
  */
+@Slf4j
 @ContextConfiguration(locations = { "/hibernate-test.xml", "classpath:spring-hibernate.xml" })
 public class TestUserAliasLogicUtils extends AbstractJUnit4SpringContextTests {
 
 	private static final String SITE_1_ID = "/site/dgsdgsadgasdf";
 
-	private static Logger log = LoggerFactory.getLogger(TestUserAliasLogicUtils.class);
 	protected UserAliasDao dao;
 	protected UserAliasLogicImpl ual;
 	protected MemoryService memService;

@@ -31,13 +31,13 @@ import org.sakaiproject.event.api.EventTrackingService;
 import org.sakaiproject.event.api.NotificationService;
 import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.beanutil.BeanLocator;
 
+@Slf4j
 public class UserAliasItemBeanLocator implements BeanLocator {
-	private static Logger log = LoggerFactory.getLogger(UserAliasItemBeanLocator.class);
+
 	public static final String NEW_PREFIX = "new";
 	
 	private Map<String, Object> delivered = new HashMap<String, Object>();

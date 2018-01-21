@@ -30,7 +30,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
-
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -48,16 +47,15 @@ import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.tool.params.CSVViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.messageutil.MessageLocator;
 import uk.org.ponder.rsf.processor.HandlerHook;
 import uk.org.ponder.rsf.viewstate.ViewParameters;
 
+@Slf4j
 public class CSVHandlerHook implements HandlerHook {
 
-	private static Logger log = LoggerFactory.getLogger(CSVHandlerHook.class);
 
 	private HttpServletResponse response;
 	public void setResponse(HttpServletResponse response) {
@@ -183,11 +181,9 @@ public class CSVHandlerHook implements HandlerHook {
 
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn(e.getMessage(), e);
 		} catch (GroupNotDefinedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn(e.getMessage(), e);
 		}
 
 

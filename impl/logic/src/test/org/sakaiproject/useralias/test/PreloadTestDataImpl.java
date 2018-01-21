@@ -14,9 +14,9 @@
 
 package org.sakaiproject.useralias.test;
 
-import org.slf4j.Logger; 
-import org.slf4j.LoggerFactory;
 import org.sakaiproject.useralias.dao.impl.UserAliasDao;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 
@@ -41,9 +41,10 @@ import org.sakaiproject.useralias.dao.impl.UserAliasDao;
  * </pre>
  * @author Aaron Zeckoski (aaronz@vt.edu)
  */
+
+@Slf4j
 public class PreloadTestDataImpl {
 
-	private static Logger log = LoggerFactory.getLogger(PreloadTestDataImpl.class);
 
    private UserAliasDao dao;
    public void setDao(UserAliasDao dao) {
