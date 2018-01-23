@@ -12,9 +12,6 @@
 	<groupId>org.sakaiproject.roleplay</groupId>
 	<artifactId>roleplay-base</artifactId>
 	<packaging>pom</packaging>
-	<properties>
-		<skipTests>true</skipTests>
-	</properties>
 	<modules>
 		<module>api</module>
 		<module>impl/dao</module>
