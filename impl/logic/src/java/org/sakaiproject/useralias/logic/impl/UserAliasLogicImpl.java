@@ -194,64 +194,67 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	 * @see org.sakaiproject.user.api.ContextualUserDisplayService#getUserDisplayName(org.sakaiproject.user.api.User, java.lang.String)
 	 */
 	public String getUserDisplayName(User user, String contextReference) {
-		String contextualDisplayName = null;
-		
+
+		if (contextReference == null) {
+			return null;
+		}
+
+		// is the context correctly formed?
+		if ((contextReference.indexOf("/site")) != 0) {
+			contextReference = "/site/" + contextReference;
+			log.debug("fixed context ref to " + contextReference);
+		}
+
 		if (!realmIsAliased(contextReference)) {
 			return null;
 		}
 		
 		log.debug("Checking for display for user: " + user.getEid() +" in " + contextReference);
 		
-		if (contextReference != null) {
-			//is the context correctly formed?
-			if ((contextReference.indexOf("/site")) != 0) {
-				contextReference = "/site/" + contextReference;
-				log.debug("fixed context ref to " + contextReference);
-			}
-			
-			// check in cache
-			UserAliasItem userAliasItem = (UserAliasItem) itemCache.get(user.getId() + "/" + contextReference);
-			
-			if (userAliasItem == null) {
-				
-				// Look up from storage
-				userAliasItem = getUserAliasItemByIdForContext(user.getId(), contextReference);
-		
-				Collection<String> azgIds = new Vector<String>();
-				azgIds.add(contextReference);
+		// check in cache
+		UserAliasItem userAliasItem = (UserAliasItem) itemCache.get(user.getId() + "/" + contextReference);
 
-				log.debug("adding item: " + user.getId() + "/" + contextReference + " to cache");
-				
-				if (userAliasItem != null) {
-					// Cache positive lookup						
-					itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem(userAliasItem));
-				} else {
-					// Not found - cache negative lookup
-					itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem());
-				}
+		if (userAliasItem == null) {
+			
+			// Look up from storage
+			userAliasItem = getUserAliasItemByIdForContext(user.getId(), contextReference);
+
+			Collection<String> azgIds = new Vector<String>();
+			azgIds.add(contextReference);
+
+			log.debug("adding item: " + user.getId() + "/" + contextReference + " to cache");
+			
+			if (userAliasItem != null) {
+				// Cache positive lookup
+				itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem(userAliasItem));
 			} else {
-				log.debug("found item: " + user.getId() + "/" + contextReference + " in cache");
+				// Not found - cache negative lookup
+				itemCache.put(user.getId() + "/" + contextReference, new UserAliasItem());
+			}
+		} else {
+			log.debug("found item: " + user.getId() + "/" + contextReference + " in cache");
+		}
+
+		String contextualDisplayName = null;
+
+		if (userAliasItem != null && userAliasItem.getId() != null) {
+			StringBuilder displayNameBuilder = new StringBuilder();
+			String firstName = userAliasItem.getFirstName();
+			if (firstName != null) {
+				displayNameBuilder.append(firstName);
 			}
 			
-			if (userAliasItem != null && userAliasItem.getId() != null) {
-				StringBuilder displayNameBuilder = new StringBuilder();
-				String firstName = userAliasItem.getFirstName();
-				if (firstName != null) {
-					displayNameBuilder.append(firstName);
-				}
-				
-				// TODO The sample code shows a blank space being returned as the alias if
-				// both the first and last names are null. Worthy of a log warning?
-				displayNameBuilder.append(" ");
-				
-				String lastName = userAliasItem.getLastName();
-				if (lastName != null) {
-					displayNameBuilder.append(lastName);
-				}
-				
-				contextualDisplayName = displayNameBuilder.toString();
-				log.debug("found alias name " + contextualDisplayName);
+			// TODO The sample code shows a blank space being returned as the alias if
+			// both the first and last names are null. Worthy of a log warning?
+			displayNameBuilder.append(" ");
+
+			String lastName = userAliasItem.getLastName();
+			if (lastName != null) {
+				displayNameBuilder.append(lastName);
 			}
+
+			contextualDisplayName = displayNameBuilder.toString();
+			log.debug("found alias name " + contextualDisplayName);
 		}
 
 		return contextualDisplayName;
