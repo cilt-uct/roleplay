@@ -29,10 +29,22 @@ public interface UserAliasLogic {
 
 	
 	
+	/**
+	 * @param userID
+	 * @param context
+	 * @return
+	 */
 	public UserAliasItem getUserAliasItemByIdForContext(String userID,String context);
 	
+	/**
+	 * @param context
+	 * @return
+	 */
 	public List<UserAliasItem> getUserAliasItemsForContext(String context);
 	
+	/**
+	 * @param item
+	 */
 	public void saveUserAliasItem(UserAliasItem item);
 	
 	/**
@@ -42,8 +54,17 @@ public interface UserAliasLogic {
 	 */
 	public boolean realmIsAliased(String realmId);
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	public UserAliasItem getUserAliasitemById(Long id);
 	
+	/**
+	 * @param userId
+	 * @param context
+	 * @return
+	 */
 	public boolean isAliasedInContext(String userId, String context);
 	
 	/**

@@ -23,10 +23,6 @@
 
 	<bean id="itemBean"
 		class="org.sakaiproject.useralias.tool.AliasBean">
-		<property name="logic"
-			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
-		<property name="userDirectoryService"
-			ref="org.sakaiproject.user.api.UserDirectoryService" />
 		<property name="userAliasItemBeanLocator"
 			ref="userAliasItemBeanLocator" />
 	</bean>

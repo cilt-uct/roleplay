@@ -30,8 +30,6 @@ import lombok.extern.slf4j.Slf4j;
 public class UserAliasTransit {
 
 	
-	private UserAliasItem userAlias;
-	
 	public void setUserAlias(UserAliasItem uai){
 		log.info("Got a user Alias Item" + uai.getFirstName());
 		
