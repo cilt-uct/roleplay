@@ -8,9 +8,9 @@
     <version>12-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <name>roleplay-logic-impl</name>
+  <name>roleplay-impl</name>
   <groupId>org.sakaiproject.roleplay</groupId>
-  <artifactId>useralias-logic-impl</artifactId>
+  <artifactId>roleplay-impl</artifactId>
   <organization>
     <name>Sakai Project</name>
     <url>http://www.sakaiproject.org/</url>
