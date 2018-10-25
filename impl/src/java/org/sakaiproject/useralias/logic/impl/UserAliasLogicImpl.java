@@ -37,6 +37,7 @@ import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.model.UserAliasSite;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -54,38 +55,27 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	protected int m_cacheMinutes = 60;
 
 	/** Dependency: MemoryService. */
-	protected MemoryService m_memoryService = null;
+	@Setter
+	protected MemoryService memoryService = null;
 
-	/**
-	 * Dependency: MemoryService.
-	 * 
-	 * @param service
-	 *        The MemoryService.
-	 */
-	public void setMemoryService(MemoryService service)
-	{
-		m_memoryService = service;
-	}
 
-	public void init(){
+
+	public void init() {
 		
-		siteCache = m_memoryService.getCache("org.sakaiproject.useralias.siteCache");
-		itemCache = m_memoryService.getCache("org.sakaiproject.useralias.itemCache");
+		siteCache = memoryService.getCache("org.sakaiproject.useralias.siteCache");
+		itemCache = memoryService.getCache("org.sakaiproject.useralias.itemCache");
 
 		log.info("init()");
 		
 	}	
 	
+	@Setter
 	private UserAliasDao dao;
-	public void setDao(UserAliasDao dao) {
-		this.dao = dao;
-	}
 
+	@Setter
 	private DeveloperHelperService developerHelperService;
-	public void setDeveloperHelperService(DeveloperHelperService developerHelperService) {
-		this.developerHelperService = developerHelperService;
-	}
 
+	@Override
 	public UserAliasItem getUserAliasItemByIdForContext(String userID, String context) {
 		if (this.realmIsAliased(context)) {
 			UserAliasItem example = new UserAliasItem();
@@ -103,6 +93,7 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	/**
 	 * Unused.
 	 */
+	@Override
 	public List<UserAliasItem> getUserAliasItemsForContext(String context) {
 		List<UserAliasItem> ret = dao.findBySearch(UserAliasItem.class, new Search("context", context));
 		return ret;
@@ -158,6 +149,7 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	/**
 	 * Get item by id
 	 */
+	@Override
 	public UserAliasItem getUserAliasitemById(Long id) {
 		return (UserAliasItem)dao.findById(UserAliasItem.class, id);
 	}
@@ -165,15 +157,14 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	/** 
 	 * Unused
 	 */
-	@SuppressWarnings("unchecked")
 	public boolean isAliasedInContext(String userId, String context) {
 		UserAliasItem example = new UserAliasItem();
 		example.setContext(context);
 		example.setUserId(userId);
 		Search search = new Search("context", context);
 		search.addRestriction(new Restriction("userId", userId));
-		List ret = dao.findBySearch(UserAliasItem.class, search);
-		if (ret.size()>0)
+		List<UserAliasItem> ret = dao.findBySearch(UserAliasItem.class, search);
+		if (ret.size() > 0)
 			return true;
 			
 		return false;
@@ -184,6 +175,7 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	 * 
 	 * @see org.sakaiproject.user.api.ContextualUserDisplayService#getUserDisplayId(org.sakaiproject.user.api.User, java.lang.String)
 	 */
+	@Override
 	public String getUserDisplayId(User user, String contextReference) {
 		return null;
 	}
@@ -193,6 +185,7 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 	 * 
 	 * @see org.sakaiproject.user.api.ContextualUserDisplayService#getUserDisplayName(org.sakaiproject.user.api.User, java.lang.String)
 	 */
+	@Override
 	public String getUserDisplayName(User user, String contextReference) {
 
 		if (contextReference == null) {
@@ -260,16 +253,19 @@ public class UserAliasLogicImpl implements UserAliasLogic, ContextualUserDisplay
 		return contextualDisplayName;
 	}
 
+	@Override
 	public String getUserDisplayId(User user) {
 		return null;
 	}
 
+	@Override
 	public String getUserDisplayName(User user) {
 		log.debug("getUserDisplayName(" + user.getEid() + ")");
 		String contextReference = developerHelperService.getCurrentLocationReference();
 		return getUserDisplayName(user, contextReference);
 	}
 
+	@Override
 	public void setSiteAliasStatus(String context, boolean isAliased) {
 		UserAliasSite site = getSiteByContext(context);
 		
