@@ -8,29 +8,25 @@
     <version>12-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <name>roleplay-logic-impl</name>
+  <name>roleplay-impl</name>
   <groupId>org.sakaiproject.roleplay</groupId>
-  <artifactId>useralias-logic-impl</artifactId>
+  <artifactId>roleplay-impl</artifactId>
   <organization>
     <name>Sakai Project</name>
     <url>http://www.sakaiproject.org/</url>
   </organization>
   <inceptionYear>2006</inceptionYear>
 <!-- the logic should be deployed as a jar and included in the pack, not to shared -->
-  <packaging>jar</packaging>
-  <properties>
-    <deploy.target />
-  </properties>
+	 <packaging>sakai-component</packaging>
+	<properties>
+		<deploy.target>components</deploy.target>
+	</properties>
   <dependencies>
 <!-- Sakai plugin so we can run maven builds from this directory -->
 <!-- internal dependencies -->
     <dependency>
       <groupId>org.sakaiproject.roleplay</groupId>
       <artifactId>roleplay-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.sakaiproject.roleplay</groupId>
-      <artifactId>useralias-dao-impl</artifactId>
     </dependency>
 <!-- generic DAO -->
         <dependency>
@@ -147,7 +143,7 @@
         <testSourceDirectory>src/test</testSourceDirectory>
         <testResources>
             <testResource>
-                <directory>${basedir}/../pack/src/webapp/WEB-INF</directory>
+                <directory>${basedir}/src/webapp/WEB-INF</directory>
                 <includes>
                     <include>spring-hibernate.xml</include>
                     <include>logic-support.xml</include>
