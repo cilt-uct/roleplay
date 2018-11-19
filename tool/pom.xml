@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>roleplay-base</artifactId>
 		<groupId>org.sakaiproject.roleplay</groupId>
-		<version>12-SNAPSHOT</version>
+		<version>19-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<name>useralias-tool</name>
@@ -22,7 +22,7 @@
 		<!-- Servlet dependency -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
+			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 		<!-- Other Sakai dependencies -->
 		<dependency>
@@ -58,7 +58,7 @@
 		<dependency>
 			<groupId>org.sakaiproject.rsf</groupId>
 			<artifactId>sakai-rsf-core</artifactId>
-            <version>12-SNAPSHOT</version>
+            <version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>

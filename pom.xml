@@ -4,10 +4,10 @@
 	<parent>
 		<artifactId>master</artifactId>
 		<groupId>org.sakaiproject</groupId>
-		<version>12-SNAPSHOT</version>
+		<version>19-SNAPSHOT</version>
         <relativePath>../master/pom.xml</relativePath>
 	</parent>
-	<version>12-SNAPSHOT</version>
+	<version>19-SNAPSHOT</version>
 	<name>Sakai role play tool</name>
 	<groupId>org.sakaiproject.roleplay</groupId>
 	<artifactId>roleplay-base</artifactId>
@@ -22,20 +22,8 @@
 			<dependency>
 				<groupId>org.sakaiproject.roleplay</groupId>
 				<artifactId>roleplay-api</artifactId>
-				<version>12-SNAPSHOT</version>
+				<version>19-SNAPSHOT</version>
 				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.sakaiproject.roleplay</groupId>
-				<artifactId>useralias-dao-impl
-				</artifactId>
-				<version>12-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>org.sakaiproject.roleplay</groupId>
-				<artifactId>useralias-logic-impl
-				</artifactId>
-				<version>12-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

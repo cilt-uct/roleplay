@@ -5,7 +5,7 @@
   <parent>
     <artifactId>roleplay-base</artifactId>
     <groupId>org.sakaiproject.roleplay</groupId>
-    <version>12-SNAPSHOT</version>
+    <version>19-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <name>roleplay-impl</name>
@@ -99,13 +99,6 @@
             <artifactId>hsqldb</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
