@@ -27,6 +27,7 @@ import java.util.Map;
 import org.sakaiproject.useralias.model.UserAliasItem;
 import org.sakaiproject.useralias.tool.locators.UserAliasItemBeanLocator;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -36,11 +37,7 @@ public class AliasBean {
 	public String newEid = null;
 	
 	
-	private UserAliasItemBeanLocator userAliasItemBeanLocator;
-	public void setUserAliasItemBeanLocator(UserAliasItemBeanLocator ubl) {
-		userAliasItemBeanLocator = ubl;
-	}
-
+	@Setter private UserAliasItemBeanLocator userAliasItemBeanLocator;
 	
 	public Map<?, ?> userAliases = new HashMap();
 	

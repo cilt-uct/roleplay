@@ -16,7 +16,7 @@
 			ref="org.sakaiproject.authz.api.AuthzGroupService" />
 		<property name="userDirectoryService"
 			ref="org.sakaiproject.user.api.UserDirectoryService" />
-		<property name="logic"
+		<property name="userAliasLogic"
 			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
 			<property name="serverConfigurationService" ref="org.sakaiproject.component.api.ServerConfigurationService"/>
 	</bean>
@@ -32,7 +32,7 @@
 
 	<bean id="userAliasItemBeanLocator"
 		class="org.sakaiproject.useralias.tool.locators.UserAliasItemBeanLocator">
-		<property name="logic"
+		<property name="userAliasLogic"
 			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
 		<property name="authzGroupService" ref="org.sakaiproject.authz.api.AuthzGroupService"/>
 		<property name="eventTrackingService" ref="org.sakaiproject.event.api.EventTrackingService"/>
@@ -43,7 +43,7 @@
 		class="org.sakaiproject.useralias.tool.handler.CSVHandlerHook">
 		<property name="toolManager"
 			ref="org.sakaiproject.tool.api.ToolManager" />
-		<property name="logic"
+		<property name="userAliasLogic"
 			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
 		<property name="response" ref="httpServletResponse" />
 		<property name="authzGroupService"
@@ -58,7 +58,7 @@
 		class="org.sakaiproject.useralias.tool.handler.XLSXHandlerHook">
 		<property name="toolManager"
 			ref="org.sakaiproject.tool.api.ToolManager" />
-		<property name="logic"
+		<property name="userAliasLogic"
 			ref="org.sakaiproject.useralias.logic.UserAliasLogic" />
 		<property name="response" ref="httpServletResponse" />
 		<property name="authzGroupService"

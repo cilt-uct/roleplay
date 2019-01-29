@@ -47,6 +47,7 @@ import org.sakaiproject.useralias.tool.params.XLSXViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.messageutil.MessageLocator;
 import uk.org.ponder.rsf.processor.HandlerHook;
@@ -56,40 +57,13 @@ import uk.org.ponder.rsf.viewstate.ViewParameters;
 public class XLSXHandlerHook implements HandlerHook {
 
 
-	private HttpServletResponse response;
-	public void setResponse(HttpServletResponse response) {
-		this.response = response;
-	}
-
-	private UserAliasLogic userAliasLogic;
-	public void setLogic(UserAliasLogic ul) {
-		this.userAliasLogic = ul;
-	}
-
-	private ToolManager toolManager;
-	public void setToolManager(ToolManager toolManager) {
-		this.toolManager = toolManager;
-	}
-
-	private ViewParameters viewparams;
-	public void setViewparams(ViewParameters viewparams) {
-		this.viewparams = viewparams;
-	}
-
-	private AuthzGroupService authzGroupService;
-	public void setAuthzGroupService(AuthzGroupService az) {
-		authzGroupService = az;
-	}
-
-	private UserDirectoryService userDirectoryService;
-	public void setUserDirectoryService(UserDirectoryService uds) {
-		this.userDirectoryService = uds;
-	}
-	
-	private MessageLocator messageLocator;
-	public void setMessageLocator(MessageLocator messageLocator) {
-		this.messageLocator = messageLocator;
-	}
+	@Setter private HttpServletResponse response;
+	@Setter private UserAliasLogic userAliasLogic;
+	@Setter private ToolManager toolManager;
+	@Setter private ViewParameters viewparams;
+	@Setter private AuthzGroupService authzGroupService;
+	@Setter private UserDirectoryService userDirectoryService;
+	@Setter private MessageLocator messageLocator;
 
 
 	@Override

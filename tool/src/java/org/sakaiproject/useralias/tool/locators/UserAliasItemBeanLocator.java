@@ -32,6 +32,7 @@ import org.sakaiproject.event.api.NotificationService;
 import org.sakaiproject.useralias.logic.UserAliasLogic;
 import org.sakaiproject.useralias.model.UserAliasItem;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.beanutil.BeanLocator;
 
@@ -42,28 +43,11 @@ public class UserAliasItemBeanLocator implements BeanLocator {
 	
 	private Map<String, Object> delivered = new HashMap<String, Object>();
 	
-	private UserAliasLogic userAliasLogic;
-	public void setLogic(UserAliasLogic ul) {
-		this.userAliasLogic = ul;
-	}
-	
-	private AuthzGroupService authzGroupService;	
-	public void setAuthzGroupService(AuthzGroupService authzGroupService) {
-		this.authzGroupService = authzGroupService;
-	}
+	@Setter private UserAliasLogic userAliasLogic;
+	@Setter private AuthzGroupService authzGroupService;	
+	@Setter private EventTrackingService eventTrackingService;
+	@Setter private DeveloperHelperService developerHelperService;
 
-	private EventTrackingService eventTrackingService;
-	
-	public void setEventTrackingService(EventTrackingService eventTrackingService) {
-		this.eventTrackingService = eventTrackingService;
-	}
-
-	
-	private DeveloperHelperService developerHelperService;
-	public void setDeveloperHelperService(
-			DeveloperHelperService developerHelperService) {
-		this.developerHelperService = developerHelperService;
-	}
 
 	public Object locateBean(String name) {
 		Object togo = delivered.get(name);
