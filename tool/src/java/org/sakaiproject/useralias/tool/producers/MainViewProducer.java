@@ -46,6 +46,7 @@ import org.sakaiproject.useralias.tool.params.XLSXViewParamaters;
 import org.sakaiproject.useralias.tool.util.SiteComparator;
 import org.sakaiproject.util.SortedIterator;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import uk.org.ponder.rsf.components.UIBranchContainer;
 import uk.org.ponder.rsf.components.UICommand;
@@ -71,47 +72,13 @@ public class MainViewProducer implements DefaultView, ViewComponentProducer {
 	}
 
 
-	private SiteService siteService;
-
-	public void setSiteService(SiteService ss) {
-		siteService = ss;
-	}
-
-	private UserAliasLogic userAliasLogic;
-
-	public void setLogic(UserAliasLogic ul) {
-		this.userAliasLogic = ul;
-	}
-
-	private ToolManager toolManager;
-
-	public void setToolManager(ToolManager toolManager) {
-		this.toolManager = toolManager;
-	}
-
-	private SecurityService securityService;
-
-	public void setSecurityService(SecurityService ss) {
-		securityService = ss;
-	}
-
-	private UserDirectoryService userDirectoryService;
-
-	public void setUserDirectoryService(UserDirectoryService uds) {
-		this.userDirectoryService = uds;
-	}
-
-	private AuthzGroupService authzGroupService;
-
-	public void setAuthzGroupService(AuthzGroupService az) {
-		authzGroupService = az;
-	}
-
-
-	private ServerConfigurationService serverConfigurationService;
-	public void setServerConfigurationService(ServerConfigurationService az) {
-		serverConfigurationService = az;
-	}
+	@Setter private SiteService siteService;
+	@Setter private UserAliasLogic userAliasLogic;
+	@Setter private ToolManager toolManager;
+	@Setter private SecurityService securityService;
+	@Setter private UserDirectoryService userDirectoryService;
+	@Setter private AuthzGroupService authzGroupService;
+	@Setter private ServerConfigurationService serverConfigurationService;
 	
 	public void fillComponents(UIContainer tofill, ViewParameters viewparams, ComponentChecker checker) {
 
