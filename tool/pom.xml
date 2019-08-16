@@ -47,11 +47,6 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
-		<!-- needed for generating CSVs for export -->
-		<dependency>
-			<groupId>com.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-		</dependency>
 		<!-- begin standard RSF dependencies here -->
 		<dependency>
 			<groupId>org.sakaiproject.rsf</groupId>
