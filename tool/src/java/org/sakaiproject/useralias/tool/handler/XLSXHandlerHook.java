@@ -30,6 +30,8 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -84,17 +86,17 @@ public class XLSXHandlerHook implements HandlerHook {
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
 		OutputStream outputStream;
+		SXSSFWorkbook wbs;
 		try {
 
 			outputStream = response.getOutputStream();
-			SXSSFWorkbook wbs = new SXSSFWorkbook();
+			wbs = new SXSSFWorkbook();
 			//for (int i = 0; i < wbs.length; i++) {
 				//Workbook wb = wbs[i];
 				//CreationHelper createHelper = wb.getCreationHelper();
 
 				// create a new sheet
 				Sheet sheet = wbs.createSheet();
-				;
 
 				String siteId = toolManager.getCurrentPlacement().getContext();
 				String context = "/site/" + siteId;
@@ -105,11 +107,26 @@ public class XLSXHandlerHook implements HandlerHook {
 
 				// Header row
 				Row row = sheet.createRow((short) 0);
-				row.createCell(0).setCellValue("userid");
-				row.createCell(1).setCellValue("Surname");
-				row.createCell(2).setCellValue("firstname");
-				row.createCell(3).setCellValue("Alias Lastname");
-				row.createCell(4).setCellValue("alias firstname");
+				row.createCell(0).setCellValue(messageLocator.getMessage("title_username"));
+				row.createCell(1).setCellValue(messageLocator.getMessage("title_surname"));
+				row.createCell(2).setCellValue(messageLocator.getMessage("title_givenname"));
+				row.createCell(3).setCellValue(messageLocator.getMessage("title_aliasLast"));
+				row.createCell(4).setCellValue(messageLocator.getMessage("title_aliasFirst"));
+				
+				Font font=  wbs.createFont();
+				font.setFontName("Arial");
+				font.setBold(true);
+				font.setItalic(false);
+				
+				CellStyle heading = wbs.createCellStyle();
+				heading.setFont(font);
+				
+				row.getCell(0).setCellStyle(heading);
+				row.getCell(1).setCellStyle(heading);
+				row.getCell(2).setCellStyle(heading);
+				row.getCell(3).setCellStyle(heading);
+				row.getCell(4).setCellStyle(heading);
+
 
 				List<User> userList = new ArrayList<User>();
 
