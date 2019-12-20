@@ -101,11 +101,11 @@ public class CSVHandlerHook implements HandlerHook {
 
 			//Header row
 			Row row = sheet.createRow((short)0);
-			row.createCell(0).setCellValue("userid");
-			row.createCell(1).setCellValue("Surname");
-			row.createCell(2).setCellValue("firstname");
-			row.createCell(3).setCellValue("Alias Lastname");
-			row.createCell(4).setCellValue("alias firstname");
+			row.createCell(0).setCellValue(messageLocator.getMessage("title_username"));
+			row.createCell(1).setCellValue(messageLocator.getMessage("title_surname"));
+			row.createCell(2).setCellValue(messageLocator.getMessage("title_givenname"));
+			row.createCell(3).setCellValue(messageLocator.getMessage("title_aliasLast"));
+			row.createCell(4).setCellValue(messageLocator.getMessage("title_aliasFirst"));
 
 			List<User> userList = new ArrayList<User>();
 
