@@ -32,7 +32,7 @@
 			<id>sakai-maven</id>
 			<name>Sakai Maven Repo</name>
 			<layout>default</layout>
-			<url>http://source.sakaiproject.org/maven2
+			<url>https://source.sakaiproject.org/maven2
 			</url>
 			<snapshots>
 				<enabled>false</enabled>
