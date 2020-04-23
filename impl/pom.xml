@@ -5,7 +5,7 @@
   <parent>
     <artifactId>roleplay-base</artifactId>
     <groupId>org.sakaiproject.roleplay</groupId>
-    <version>19-SNAPSHOT</version>
+    <version>20-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <name>roleplay-impl</name>

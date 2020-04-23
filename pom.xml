@@ -4,10 +4,10 @@
 	<parent>
 		<artifactId>master</artifactId>
 		<groupId>org.sakaiproject</groupId>
-		<version>19-SNAPSHOT</version>
+		<version>20-SNAPSHOT</version>
         <relativePath>../master/pom.xml</relativePath>
 	</parent>
-	<version>19-SNAPSHOT</version>
+	<version>20-SNAPSHOT</version>
 	<name>Sakai role play tool</name>
 	<groupId>org.sakaiproject.roleplay</groupId>
 	<artifactId>roleplay-base</artifactId>
@@ -22,7 +22,7 @@
 			<dependency>
 				<groupId>org.sakaiproject.roleplay</groupId>
 				<artifactId>roleplay-api</artifactId>
-				<version>19-SNAPSHOT</version>
+				<version>20-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 		</dependencies>
@@ -40,9 +40,9 @@
 		</repository>
 	</repositories>
 	<scm>
-		<connection>scm:git:git://github.com/cilt-uct/Roleplay</connection>
-		<developerConnection>scm:git:ssh://github.com/cilt-uct/Roleplay</developerConnection>
-		<url>https://github.com/cilt-uct/Roleplay</url>
+		<connection>scm:git:git://github.com/cilt-uct/roleplay</connection>
+		<developerConnection>scm:git:ssh://github.com/cilt-uct/roleplay</developerConnection>
+		<url>https://github.com/cilt-uct/roleplay</url>
 	</scm>
   <licenses>
     <license>
