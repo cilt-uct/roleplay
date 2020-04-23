@@ -7,7 +7,7 @@ Roleplay (aka "user alias") is a tool and service for Sakai 2.6.0 and later whic
 * Community wiki: https://confluence.sakaiproject.org/display/RPLAY/Home
 ## Using the tool
 1. Add the useralias project to your source tree (2.6.0, 2-6-x or later). If you use an .externals file to manage your source tree, add a line such as this:
-`useralias        https://github.com/cilt-uct/Roleplay/branches/sakai-11.x`
+`roleplay        https://github.com/cilt-uct/roleplay/branches/sakai-11.x`
 2. To "stealth" the tool so that it does not show up in the regular list of available tools for a site, add it to your hiddenTools list in sakai.properties, e.g.
 hiddenTools@org.sakaiproject.tool.api.ActiveToolManager=sakai.useralias
 3. Add the tool to the site(s) in which you wish to use it through Site Info / Edit Tools, or the Admin Sites editor if the tool is stealthed.
