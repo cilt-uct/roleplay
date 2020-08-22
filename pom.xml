@@ -4,10 +4,10 @@
 	<parent>
 		<artifactId>master</artifactId>
 		<groupId>org.sakaiproject</groupId>
-		<version>20-SNAPSHOT</version>
+		<version>21-SNAPSHOT</version>
         <relativePath>../master/pom.xml</relativePath>
 	</parent>
-	<version>20-SNAPSHOT</version>
+	<version>21-SNAPSHOT</version>
 	<name>Sakai role play tool</name>
 	<groupId>org.sakaiproject.roleplay</groupId>
 	<artifactId>roleplay-base</artifactId>
