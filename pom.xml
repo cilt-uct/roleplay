@@ -22,7 +22,7 @@
 			<dependency>
 				<groupId>org.sakaiproject.roleplay</groupId>
 				<artifactId>roleplay-api</artifactId>
-				<version>20-SNAPSHOT</version>
+				<version>21-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 		</dependencies>
