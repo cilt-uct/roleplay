@@ -4,10 +4,10 @@
 	<parent>
 		<artifactId>master</artifactId>
 		<groupId>org.sakaiproject</groupId>
-		<version>22-SNAPSHOT</version>
+		<version>23-SNAPSHOT</version>
         <relativePath>../master/pom.xml</relativePath>
 	</parent>
-	<version>22-SNAPSHOT</version>
+	<version>23-SNAPSHOT</version>
 	<name>Sakai role play tool</name>
 	<groupId>org.sakaiproject.roleplay</groupId>
 	<artifactId>roleplay-base</artifactId>
@@ -22,7 +22,7 @@
 			<dependency>
 				<groupId>org.sakaiproject.roleplay</groupId>
 				<artifactId>roleplay-api</artifactId>
-				<version>22-SNAPSHOT</version>
+				<version>23-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
 		</dependencies>
